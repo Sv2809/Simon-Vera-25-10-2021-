@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoList.Views.TodoListPage"
+             Title="Bertoni's To-Do list">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnItemAdded">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android, UWP" 
+                        Value="mas.png" />
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+
+        <SearchBar Placeholder="Buscar...">
+
+        </SearchBar>
+
+       
+        <ListView x:Name="listView" 
+              Margin="20" 
+              ItemSelected="OnListItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20,0,0,0" 
+                                 Orientation="Horizontal" 
+                                 HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding Name}" 
+                               VerticalTextAlignment="Center" 
+                               HorizontalOptions="StartAndExpand"
+                                   FontSize="Medium"
+                                   TextColor="Black"/>
+                            <Image Source="check.png" 
+                                   WidthRequest="30"
+                                   HeightRequest="30"
+                               HorizontalOptions="End" 
+                               IsVisible="{Binding IsDone}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+
+
+</ContentPage>

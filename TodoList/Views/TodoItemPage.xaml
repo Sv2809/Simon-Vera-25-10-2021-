@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="TodoList.Views.TodoItemPage" 
+             Title="{Binding Name}">
+    <StackLayout Margin="20" 
+                 VerticalOptions="StartAndExpand">
+        
+        
+        <Label Text="Tarea" FontSize="Medium" TextColor="Black" />
+        <Entry Text="{Binding Name}" />
+        <Label Text="Descripción" FontSize="Medium"  TextColor="Black" />
+        <Entry Text="{Binding Description}" />
+        
+        <StackLayout Orientation="Horizontal">
+            <Label HorizontalOptions="StartAndExpand" Text="¡Listo!" FontSize="Medium"  TextColor="Black" />
+            <Switch HorizontalOptions="EndAndExpand" IsToggled="{Binding IsDone}" />
+        </StackLayout>
+        
+
+        <StackLayout Orientation='Horizontal' Margin="5" VerticalOptions="EndAndExpand">
+            <Button HorizontalOptions="CenterAndExpand" Clicked="OnSaveClicked" CornerRadius="10" HeightRequest="40" Text="Guardar"></Button>
+            <Button HorizontalOptions="CenterAndExpand" Clicked="OnDeleteClicked" CornerRadius="10" HeightRequest="40" Text="Eliminar"></Button>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
