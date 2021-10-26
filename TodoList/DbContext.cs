@@ -5,6 +5,7 @@ namespace TodoList
 {
     public static class DbContext
     {
+
         public const string DatabaseFilename = "SQLite.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
